@@ -28,11 +28,6 @@ ATTRIBUTES:
     CR_LIST (list): a nested list [[row], [row], [row]] of all the crimes within the
         radius of the postcode geoposition. This is passed to the plot_map function.
         
-TO DO:
-    Validate the time_range.
-    Include the date and postcode validation after testing.
-    Allow users to pick a time range or specify the months for the list. This would be
-        done in the month_list function.
 """
 from compile_csvs import write_csv, month_list
 from postcode import centre_point
@@ -44,15 +39,18 @@ from validate_postcode import validate_postcode
 time_range = input("Enter a time range (0-12 months)")
 postcode = input("Enter a postcode:")
 radius = input("Please choose a 1, 2 or 5 mile radius:")
-date = input("Enter a date in the format YYYY-MM:")
+start_date = input("Enter a start date in the format YYYY-MM:")
+end_date = input("Enter an end date in the format YYYY-MM:")
 
-valid_date = validate_date(date) # can't implement any more than this at the moment as the variable isn't being used
-valid_postcode = validate_postcode(postcode)
-                   
-MONTHS = month_list(int(time_range)) # gets list of months for file names
+valid_date1 = validate_date(start_date) # check if start date is valid
+valid_date2 = validate_date(end_date) # check if end date is valid
+valid_postcode = validate_postcode(postcode) # check if postcode is valid
+
+
+MONTHS = month_list(start_date, end_date) # gets list of months for file names
 write_csv(MONTHS) # compile all the crimes into one file
 
-if validatePostcode(postcode) and date_valid:  # checks for valid postcode 
+if validatePostcode(postcode) and (valid_date1 and valid_date2):
     try:  # catches exemption of postcode not found 
         post_data = centre_point(postcode, 'postcodes.csv') # gets centrepoint latlong 
         post_lat = post_data[0]
