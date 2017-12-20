@@ -29,8 +29,9 @@ ATTRIBUTES:
         radius of the postcode geoposition. This is passed to the plot_map function.
         
 """
-from compile_csvs import write_csv, month_list
-from postcode import centre_point
+from write_csv import write_csv
+from month_list import month_list
+from centre_point import centre_point
 from crimes_in_box import crimes_in_radius
 from plot_map import plot_map
 from validate_date import validate_date
