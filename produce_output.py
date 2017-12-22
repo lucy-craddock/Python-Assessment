@@ -52,7 +52,7 @@ def produce_output():
     MONTHS = month_list(start_date, end_date) # gets list of months for file names
     write_csv(MONTHS) # compile all the crimes into one file
 
-    if validatePostcode(postcode) and (valid_date1 and valid_date2):
+    if valid_postcode and (valid_date1 and valid_date2):
         try:  # catches exemption of postcode not found 
             post_data = centre_point(postcode, 'postcodes.csv') # gets centrepoint latlong 
             post_lat = post_data[0]
