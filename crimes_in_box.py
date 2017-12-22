@@ -8,8 +8,11 @@ def crimes_in_radius(post_lat, post_lon, radius):
     and then calculates distance from the postcode geoposition. This is added to a new
     nested list [[row], [row], [row]] of crimes within the list with the heading row.
     """
-    file = open(r'crimes_in_sw.csv', 'r')
-    crime_loc = list(file)  # turns into list to use indices
+    crime_loc = []
+    
+    with open(crimes_in_sw.csv) as f:
+    for line in f.readlines():
+        crime_loc.append(line)  # turns into list to use indices
 
     headings = crime_loc[0] # takes first row which is a single element in the file list
     headings = headings.split(",") # splits into list
