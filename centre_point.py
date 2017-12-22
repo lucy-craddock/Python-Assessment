@@ -1,7 +1,7 @@
+
 """
 TO DO:
     Add an exception for error handling if postcode not found.
-    Change syntax to with open(file) as file.
 """
 def centre_point(postcode, file):
     """ Returns the latlong for the postcode.
@@ -11,13 +11,16 @@ def centre_point(postcode, file):
 
     Note: postcode has to be exactly as in the file.
     """
-    file = open(file, 'r')
-    postcodes = list(file)  # read as strings
-    firstcol = 0 # first column contains postcodes
+    postcodes = []
+    
+    with open(file) as f:
+        for line in f:
+            postcodes.append(line)
+
     for row in postcodes:
-        if row[firstcol] == postcode:
+        if row[0] == postcode: #row[o] contains postcodes
+            # if the value of row[0] matches the given postcode, find the lat and lon from the row
             lat = row[10]
             lon = row[11]
 
-    file.close()
     return(float(lat), float(lon))
