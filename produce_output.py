@@ -5,9 +5,9 @@ radius of that postcode over a time-range. This is outputted in a form of a hist
 in the console.
 
 ATTRIBUTES:
-    time_range (int): inputted by user. This is the number of months passed into the
-        month_list function. For example, if this is set to 1, it will return the
-        last month. If 6, the last 6 months.
+    start_date (str)
+    
+    end_date (str)
     
     postcode (str): inputted for user to be passed through the centre_point function
         that returns the lat, long for the postcode. This is used to calculate crimes
