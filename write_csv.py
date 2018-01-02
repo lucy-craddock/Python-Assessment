@@ -1,3 +1,5 @@
+from get_files import get_files
+
 def write_csv(months):
     """ Writes the compiled list into a single CSV file.
 
@@ -17,7 +19,7 @@ def write_csv(months):
             element.lstrip('\'')
             element.lstrip('[')
             element.lstrip(']')
-            temp_row = temp_row + element + ',' # recreates csv file
+            temp_row = temp_row + element + ','  # recreates csv file
         row = temp_row
         new_file.write("%s\n" % row)
         
