@@ -13,9 +13,8 @@ def centre_point(postcode, file):
     """
     postcodes = []
     
-    with open(file) as f:
-        for line in f:
-            postcodes.append(line)
+    file = open(file, 'r')
+    postcodes = list(file)  # read as strings
 
     for row in postcodes:
         if row[0] == postcode: #row[o] contains postcodes

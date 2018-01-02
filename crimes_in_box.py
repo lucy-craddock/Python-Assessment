@@ -10,9 +10,8 @@ def crimes_in_radius(post_lat, post_lon, radius):
     """
     crime_loc = []
     
-    with open(crimes_in_sw.csv) as f:
-    for line in f.readlines():
-        crime_loc.append(line)  # turns into list to use indices
+    file = open(r'crimes_in_sw.csv', 'r')
+    crime_loc = list(file)  # turns into list to use indices
 
     headings = crime_loc[0] # takes first row which is a single element in the file list
     headings = headings.split(",") # splits into list
