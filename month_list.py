@@ -17,33 +17,32 @@ def month_list(startdate, enddate):
     except:
       print("Start and end dates must be within the same year.")
       
-    else: # runs if there are no exception errors in the try block
-      month_start = startdate[5:]
-      month_end = enddate[5:]
+    else:  # runs if there are no exception errors in the try block
+      month_start = int(startdate[5:])
+      month_end = int(enddate[5:])
       
       # compare months of start and end dates
-      range = month_end - month_start
+      mnth_range = month_end - month_start
       
-      if range < 0:
+      if mnth_range < 0:
           # if the range is negative (occurs if dates entered are not in chronological order) then
           # multiply by -1 to make it a postive integer
-          range = range*(-1)
+          mnth_range = mnth_range * (-1)
       
-      if (range > 0) and (range < 12):
+      if (mnth_range > 0) and (mnth_range < 12):
           # add dates to empty list
           for month in range(month_start, month_end):
               date = year + "-"
               if month < 10:
                   date += "0"
-              date += month
+              date += str(month)
               months.append(date)
           months.append(enddate)
         
-     elif range == 0
+      elif mnth_range == 0:
         months.append(startdate)
         
-     else:
-        print("Invalid month range)
-    
+      else:
+        print("Invalid month range")
     
     return months

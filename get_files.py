@@ -1,3 +1,5 @@
+from get_headings import get_headings
+
 def get_files(months):
     """ Creates a compiled list of each file in months.
 
@@ -8,16 +10,16 @@ def get_files(months):
     headings = get_headings(months)
     full_list = []
     full_list.append(headings)  # adds headings to top of list
-    crimes_list = [] # new list for the compiled csvs (lists)
+    crimes_list = []  # new list for the compiled csvs (lists)
 
     for date in months:
         filename = 'crime/' + date + '/' + date + '-devon-and-cornwall-street.csv'
         file = open(filename, 'r')
         crime_loc = list(file)  # turns into list to use indices
 
-        for row in crime_loc[1:]: # skips heading as already gotten
+        for row in crime_loc[1:]:  # skips heading as already gotten
             row = row.split(',')
-            row = row[0:2] + row[4:7] + row[9:10] # cleans columns
+            row = row[0:2] + row[4:7] + row[9:10]  # cleans columns
             crimes_list.append(row)
 
         full_list = full_list + crimes_list
