@@ -1,8 +1,8 @@
 from geodist import distance
 from bounding_box import bounding_box
+from check_list import empty_list
 
-
-def crimes_in_radius(post_lat, post_lon, radius):
+def crimes_in_box(post_lat, post_lon, radius):
     """ Returns list of crimes within radius.
 
     Goes through compiled CSV file and checks whether the latlong is the bounding box,
@@ -10,7 +10,7 @@ def crimes_in_radius(post_lat, post_lon, radius):
     nested list [[row], [row], [row]] of crimes within the list with the heading row.
     """
     crime_loc = []
-    
+
     file = open(r'crimes_in_sw.csv', 'r')
     crime_loc = list(file)  # turns into list to use indices
 
@@ -34,7 +34,10 @@ def crimes_in_radius(post_lat, post_lon, radius):
                         if difference <= radius:
                             crimes_list.append(row)
 
-    return(crimes_list)
+    return crimes_list
 
-crimes_in_radius(50.4127679, -4.085751, 1)
-
+if __name__ == "__main__":
+    print("testing crimes in box")
+    assert empty_list(crimes_in_box(50.4127679, -4.085751, 1))
+    assert empty_list(crimes_in_box(50.71413737, -2.43711588, 2))
+    assert empty_list(crimes_in_box(50.71461595, -3.54978917, 5))
