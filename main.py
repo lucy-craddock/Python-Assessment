@@ -57,7 +57,7 @@ def produce_output():
             post_data = centre_point(postcode, 'postcodes.csv') # gets centrepoint latlong 
             post_lat = post_data[0]
             post_lon = post_data[1]
-            cr_list = crimes_in_radius(post_lat, post_lon, int(radius))
+            cr_list = crimes_in_box(post_lat, post_lon, int(radius))
             plot_map(cr_list, postcode)
         except ValueError:
             print("We cannot find your postcode.")
