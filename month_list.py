@@ -1,3 +1,5 @@
+from check_list import empty_list
+
 def month_list(startdate, enddate):
     """ Creates a list of months starting from a given start date to a given end date.
 
@@ -46,3 +48,7 @@ def month_list(startdate, enddate):
         print("Invalid month range")
 
     return months
+
+if __name__ == "__main__":
+    print("testing month list")
+    assert empty_list(month_list("2016-01","2016-03"))
