@@ -14,17 +14,17 @@ def centre_point(postcode, file):
     Note: postcode has to be exactly as in the file.
     """
     postcodes = []
-    
+
     file = open(file, 'r')
     postcodes = csv.reader(file)
     postcodes = list(postcodes)  # read as strings
-    
+
     for row in postcodes:
-        #row = row.split(',')
+        # row = row.split(',')
         if row[0] == postcode:  # row[0] contains postcodes
             # if the value of row[0] matches the given postcode, find the lat and lon from the row
             lat = row[10]
             lon = row[11]
-            
-            file.close() # not good practise - won't be closed if postcode not found
+
+            file.close()  # not good practise - won't be closed if postcode not found
             return(float(lat), float(lon))
