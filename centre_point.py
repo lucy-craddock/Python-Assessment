@@ -1,18 +1,18 @@
 import csv
-"""
+'''
 TO DO:
     Add an exception for error handling if postcode not found.
     Make this work without csv module
-"""
+'''
 
 def centre_point(postcode, file):
-    """ Returns the latlong for the postcode.
+    ''' Returns the latlong for the postcode.
 
     This function checks each row for the postcode and returns the lat and long
     in the 9th and 10th column as floats for the postcode.
 
     Note: postcode has to be exactly as in the file.
-    """
+    '''
     postcodes = []
 
     file = open(file, 'r')

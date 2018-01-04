@@ -1,13 +1,13 @@
 from check_list import empty_list
 
 def get_headings(months):
-    """ Gets the headings of the first CSV file.
+    ''' Gets the headings of the first CSV file.
 
     This is done to avoid the heading row being repeated every time a CSV file is read.
     This is then used to write the first row for the compiled CSV file.
     Note: The start_date is not static because if the user has updated their files for
     2017, 2016-01 will not exist in the directory.
-    """
+    '''
 
     start_date = months[0] # gets first file
     filename = 'crime/' + start_date + '/' + start_date + '-devon-and-cornwall-street.csv'
@@ -15,13 +15,13 @@ def get_headings(months):
 
     first_file = list(file)
     headings = first_file[0] # takes first row which is a single element in the file list
-    headings = headings.split(",") # splits into list of strings
+    headings = headings.split(',') # splits into list of strings
     headings = headings[0:2] + headings[4:7] + headings[9:10] # skips unnecessary columns
 
     file.close()
 
     return headings
 
-if __name__ == "__main__":
-    print("testing get headings")
+if __name__ == '__main__':
+    print('testing get headings')
     assert empty_list(get_headings(['2016-01']))

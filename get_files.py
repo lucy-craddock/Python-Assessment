@@ -2,11 +2,11 @@ from get_headings import get_headings
 from check_list import empty_list
 
 def get_files(months):
-    """ Creates a compiled list of each file in months.
+    ''' Creates a compiled list of each file in months.
 
     This function uses the list of months to open the file using the date in the filename
     to compile a list of all the csv files for each month in the months list.
-    """
+    '''
 
     headings = get_headings(months)
     full_list = []
@@ -29,8 +29,8 @@ def get_files(months):
 
     return full_list
 
-if __name__ == "__main__":
-    print("testing get files")
+if __name__ == '__main__':
+    print('testing get files')
     assert empty_list(get_files(['2016-01']))
     assert empty_list(get_files(['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06', '2016-07']))
     assert empty_list(get_files(['2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12']))

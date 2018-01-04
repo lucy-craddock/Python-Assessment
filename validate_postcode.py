@@ -1,15 +1,15 @@
 # validate postcode
 def validate_postcode(postcode):
 
-    """ Checks a string to determine if it is a valid postcode. Return boolean value where
-    True indicates the postcode is valid. """
+    ''' Checks a string to determine if it is a valid postcode. Return boolean value where
+    True indicates the postcode is valid. '''
 
     # Inital validity set to False
     valid = False
 
     # Remove spaces in string if necessary
-    if " " in postcode:
-        postcode = postcode.replace(" ", "")
+    if ' ' in postcode:
+        postcode = postcode.replace(' ', '')
 
     # If the postcode is longer the 7 characters, or less than 5 characters in length, then it is not valid
     if (len(postcode) < 5) or (len(postcode) > 7):
@@ -50,8 +50,8 @@ def validate_postcode(postcode):
 
 def test_valid():
 
-    valid_format = ["A11AA", "A111AA", "AA11AA", "A1A1AA", "AA111AA", "AA1A1AA", "DT1 1AA", "DT11 7XQ", "PL25 3UH"]
-    invalid_format = ["A1AA", "AAAAAA", "AAA1A11AA", "AA", "AA1AAAA", "AA11111", "DT1AA", "DTXQ", "4L253UH"]
+    valid_format = ['A11AA', 'A111AA', 'AA11AA', 'A1A1AA', 'AA111AA', 'AA1A1AA', 'DT1 1AA', 'DT11 7XQ', 'PL25 3UH']
+    invalid_format = ['A1AA', 'AAAAAA', 'AAA1A11AA', 'AA', 'AA1AAAA', 'AA11111', 'DT1AA', 'DTXQ', '4L253UH']
 
     for i in range(len(valid_format)):
         validate = validate_postcode(valid_format[i])

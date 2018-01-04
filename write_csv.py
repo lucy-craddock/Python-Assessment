@@ -1,12 +1,12 @@
 from get_files import get_files
 
 def write_csv(months):
-    """ Writes the compiled list into a single CSV file.
+    ''' Writes the compiled list into a single CSV file.
 
     This function calls the get_files function to return the months in a form of a nested
     list [[row], [row], [row]]. It then strips these lists of brackets and new line before
     writing the row to new CSV file.
-    """
+    '''
 
     data = get_files(months)
 
@@ -21,6 +21,6 @@ def write_csv(months):
             element.lstrip(']')
             temp_row = temp_row + element + ','  # recreates csv file
         row = temp_row
-        new_file.write("%s\n" % row)
+        new_file.write('%s\n' % row)
 
     new_file.close()

@@ -1,13 +1,13 @@
 from check_list import empty_list
 
 def month_list(startdate, enddate):
-    """ Creates a list of months starting from a given start date to a given end date.
+    ''' Creates a list of months starting from a given start date to a given end date.
 
     ATTRIBUTES:
         months (list): an empty list is created to be filled by strings in this format:
             '2016-01', '2016-02'. This is returned. The format is important because this
             is used to read the file names in the directory.
-    """
+    '''
 
     months = []
 
@@ -17,7 +17,7 @@ def month_list(startdate, enddate):
         # the year for both dates must be the same for the module to function correctly
 
     except:
-        print("Start and end dates must be within the same year.")
+        print('Start and end dates must be within the same year.')
 
     else:  # runs if there are no exception errors in the try block
         month_start = int(startdate[5:])
@@ -34,9 +34,9 @@ def month_list(startdate, enddate):
     if (mnth_range > 0) and (mnth_range < 12):
         # add dates to empty list
         for month in range(month_start, month_end):
-            date = year + "-"
+            date = year + '-'
             if month < 10:
-                date += "0"
+                date += '0'
             date += str(month)
             months.append(date)
         months.append(enddate)
@@ -45,10 +45,10 @@ def month_list(startdate, enddate):
         months.append(startdate)
 
     else:
-        print("Invalid month range")
+        print('Invalid month range')
 
     return months
 
-if __name__ == "__main__":
-    print("testing month list")
-    assert empty_list(month_list("2016-01","2016-03"))
+if __name__ == '__main__':
+    print('testing month list')
+    assert empty_list(month_list('2016-01','2016-03'))
