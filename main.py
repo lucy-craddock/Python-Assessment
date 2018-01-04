@@ -30,13 +30,14 @@ ATTRIBUTES:
         radius of the postcode geoposition. This is passed to the plot_map function.
 
 '''
-from write_csv import write_csv
-from month_list import month_list
+from validation.validate_date import validate_date
+from validation.validate_postcode import validate_postcode
+from compile_csv.write_csv import write_csv
+from compile_csv.month_list import month_list
 from centre_point import centre_point
-from crimes_in_box import crimes_in_box
-from plot_map import plot_map
-from validate_date import validate_date
-from validate_postcode import validate_postcode
+from filter.crimes_in_box import crimes_in_box
+from output.plot_map import plot_map
+from output.csv_save import csv_save
 
 def description():
     print('Authors: Lucy Craddock, Beth Harper, Jaime Viegas, Felipe Warrerner')
@@ -96,7 +97,7 @@ def produce_output(postcode, radius, start_date,
             post_lon = post_data[1]
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))
             if save_file:
-                csv_file
+                csv_save(cr_list, postcode, start_date, end_date)
             plot_map(cr_list, postcode)
         except ValueError:
             print('We cannot find your postcode.')
@@ -108,7 +109,7 @@ def produce_output(postcode, radius, start_date,
     if yes_no(program_quit):
         save_file = True
     else:
-        save_file = False
+        get_input()
 
 
 if __name__ == '__main__':

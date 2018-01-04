@@ -1,4 +1,4 @@
-from get_headings import get_headings
+from  compile_csv.get_headings import get_headings
 from check_list import empty_list
 
 def get_files(months):
