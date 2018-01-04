@@ -28,7 +28,7 @@ def plot_map(data, postcode):
 
     """
     crime_types = dict()
-    length = len(data)
+    length = len(data) - 1 # skips header
 
     print(postcode, "has a total of", length, "crimes \n")
 
@@ -42,7 +42,7 @@ def plot_map(data, postcode):
         crime_types[value] = crime_types[value]/length * 100
 
     character_to_display = "*"
-    screen_width = 80
+    screen_width = 100
 
 
     def histoplot(cr_type, percent, max_width, character):
@@ -58,8 +58,9 @@ def plot_map(data, postcode):
         """
         count = round(percent * ((max_width-15)/100))
         count = count * character
-        print("'", cr_type, "'", count, "(", "{:02.0f}".format(percent), "%)")
-
+        print("{:30}".format(cr_type), ": ",
+              count,
+              "  (", "{:.1f}".format(percent), "%)", sep="")
 
     count = 0
     sorted_dict = sorted(crime_types.items(), key=lambda value: value[1], reverse=True)
