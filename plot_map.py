@@ -1,11 +1,11 @@
-""" Histogram for most common types of crimes.
+''' Histogram for most common types of crimes.
 
 The module prints the a histogram in the console of the most common crimes
 in a postcode area in descending order.
-"""
+'''
 
 def plot_map(data, postcode):
-    """ Prints the histogram for the crimes in area.
+    ''' Prints the histogram for the crimes in area.
 
     This function creates a dictionary to store each crime  and its count. It then
     calculates the count to a percentage using the length of the dictionary and sorts
@@ -26,11 +26,11 @@ def plot_map(data, postcode):
         Uses sorted_dict to iterate through for each line. This only loops a maximum
         of the number of crime types in the dictionary.
 
-    """
+    '''
     crime_types = dict()
     length = len(data) - 1 # skips header
 
-    print(postcode, "has a total of", length, "crimes \n")
+    print(postcode, 'has a total of', length, 'crimes \n')
 
     for row in data[1:]:
         if row[5] not in crime_types.keys():
@@ -41,12 +41,12 @@ def plot_map(data, postcode):
     for value in crime_types:
         crime_types[value] = crime_types[value]/length * 100
 
-    character_to_display = "*"
+    character_to_display = '*'
     screen_width = 100
 
 
     def histoplot(cr_type, percent, max_width, character):
-        """ Prints a line for each crime type in the list.
+        ''' Prints a line for each crime type in the list.
 
         Args:
             percent (float): percentage used to calculate number of crimes to
@@ -55,12 +55,12 @@ def plot_map(data, postcode):
                 by 50 to accomdate for the printed crime type and percentage.
             character (str): the character to display for visualising the histogram.
                 This is set to '*'.
-        """
+        '''
         count = round(percent * ((max_width-15)/100))
         count = count * character
-        print("{:30}".format(cr_type), ": ",
+        print('{:30}'.format(cr_type), ': ',
               count,
-              "  (", "{:.1f}".format(percent), "%)", sep="")
+              '  (', '{:.1f}'.format(percent), '%)', sep='')
 
     count = 0
     sorted_dict = sorted(crime_types.items(), key=lambda value: value[1], reverse=True)
