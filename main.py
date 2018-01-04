@@ -1,5 +1,5 @@
 
-"""
+'''
 This module takes a time-range, radius and postcode to find all the crimes within a
 radius of that postcode over a time-range. This is outputted in a form of a histogram
 in the console.
@@ -29,7 +29,7 @@ ATTRIBUTES:
     CR_LIST (list): a nested list [[row], [row], [row]] of all the crimes within the
         radius of the postcode geoposition. This is passed to the plot_map function.
 
-"""
+'''
 from write_csv import write_csv
 from month_list import month_list
 from centre_point import centre_point
@@ -38,12 +38,50 @@ from plot_map import plot_map
 from validate_date import validate_date
 from validate_postcode import validate_postcode
 
-def produce_output():
-    postcode = input("Enter a postcode:")
-    radius = input("Please choose a 1, 2 or 5 mile radius:")
-    start_date = input("Enter a start date in the format YYYY-MM:")
-    end_date = input("Enter an end date in the format YYYY-MM:")
+def description():
+    print('Authors: Lucy Craddock, Beth Harper, Jaime Viegas, Felipe Warrerner')
+    print('ECM1421 - Systems Development 1: Continuous Assessment 2')
+    print('Description \n--------------')
+    print('''This program will print a histogram to console of the most common crimes for a
+postcode within a radius of your choice for the latest month. You can specify a
+time frame if you choose to do. You also have the option of saving the crimes to
+a csv file.
 
+The program will allow you to look up another postcode when finished. To quit,
+press 'y'.\n-----------------''')
+
+def get_input():
+    postcode = input('Enter a postcode:')
+    radius = input('Please choose a 1, 2 or 5 mile radius:')
+    option_time = input("Would you like to specify the months? (Y/N)")
+    
+    if yes_no(option_time):
+        start_date = input('Enter a start date in the format YYYY-MM:')
+        end_date = input('Enter an end date in the format YYYY-MM:')
+    else:
+        start_date = '2016-12'
+        end_date = '2016-12'
+    
+    option_save = input("Would you like to save the crimes to a CSV file? (Y/N)")
+    
+    if yes_no(option_save):
+        save_file = True
+    else:
+        save_file = False
+        
+    produce_output(postcode, radius, start_date, end_date, save_file)
+    
+def yes_no(option):
+    if (option.lower() == 'y') or (option.lower() == 'yes'):
+        return True
+    elif (option.lower() == 'n') or (option.lower() == 'no'):
+        return False
+    else:
+        new_input = input("Sorry, we recieved an error. Please try again.")
+        yes_no(new_input)
+    
+def produce_output(postcode, radius, start_date,
+                   end_date, save_file):
     valid_date1 = validate_date(start_date) # check if start date is valid
     valid_date2 = validate_date(end_date) # check if end date is valid
     valid_postcode = validate_postcode(postcode) # check if postcode is valid
@@ -57,22 +95,22 @@ def produce_output():
             post_lat = post_data[0]
             post_lon = post_data[1]
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))
+            if save_file:
+                csv_file
             plot_map(cr_list, postcode)
         except ValueError:
-            print("We cannot find your postcode.")
+            print('We cannot find your postcode.')
     else:
-        print("Sorry, the details you provided were invalid!")
+        print('Sorry, the details you provided were invalid!')
 
-    program_quit = input("Quit? (Y/N)")
+    program_quit = input('Quit? (Y/N)')
 
-    try:
-        if (program_quit.lower() == "y") or (program_quit.lower() == "yes"):
-            sys.exit()
-        elif (program_quit.lower() == "n") or (program_quit.lower() == "no"):
-            produce_output()
-    except ValueError():
-        print("Invalid input")
+    if yes_no(program_quit):
+        save_file = True
+    else:
+        save_file = False
 
 
-if __name__ == "__main__":
-    produce_output()
+if __name__ == '__main__':
+    description()
+    get_input()
