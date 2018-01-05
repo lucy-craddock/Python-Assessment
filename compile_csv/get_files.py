@@ -13,7 +13,7 @@ def get_files(months):
     crimes_list = []  # new list for the compiled csvs (lists)
 
     for date in months:
-        filename = 'crime/' + date + '/' + date + '-devon-and-cornwall-street.csv'
+        filename = 'compile_csv/crime/' + date + '/' + date + '-devon-and-cornwall-street.csv'
         file = open(filename, 'r')
         crime_loc = list(file)  # turns into list to use indices
 

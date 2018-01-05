@@ -34,7 +34,7 @@ from validation.validate_date import validate_date
 from validation.validate_postcode import validate_postcode
 from compile_csv.write_csv import write_csv
 from compile_csv.month_list import month_list
-from centre_point import centre_point
+from postcode.centre_point import centre_point
 from filter.crimes_in_box import crimes_in_box
 from output.plot_map import plot_map
 from output.csv_save import csv_save
@@ -92,7 +92,7 @@ def produce_output(postcode, radius, start_date,
 
     if valid_postcode and (valid_date1 and valid_date2):
         try:  # catches exemption of postcode not found
-            post_data = centre_point(postcode, 'postcodes.csv') # gets centrepoint latlong
+            post_data = centre_point(postcode, 'postcode/postcodes.csv') # gets centrepoint latlong
             post_lat = post_data[0]
             post_lon = post_data[1]
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))

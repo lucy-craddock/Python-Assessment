@@ -10,7 +10,7 @@ def get_headings(months):
     '''
 
     start_date = months[0] # gets first file
-    filename = 'crime/' + start_date + '/' + start_date + '-devon-and-cornwall-street.csv'
+    filename = 'compile_csv/crime/' + start_date + '/' + start_date + '-devon-and-cornwall-street.csv'
     file = open(filename, 'r')
 
     first_file = list(file)
