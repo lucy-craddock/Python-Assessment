@@ -36,7 +36,7 @@ from compile_csv.write_csv import write_csv
 from compile_csv.month_list import month_list
 from postcode.centre_point import centre_point
 from filter.crimes_in_box import crimes_in_box
-from output.plot_map import plot_map
+from output.plot_histo import plot_map
 from output.csv_save import csv_save
 
 def description():
