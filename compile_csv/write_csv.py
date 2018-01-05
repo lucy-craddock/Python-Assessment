@@ -10,7 +10,7 @@ def write_csv(months):
 
     data = get_files(months)
 
-    new_file = open('compile_csv//crimes_in_sw.csv', 'w')
+    new_file = open('compile_csv/crimes_in_sw.csv', 'w')
             # cleans list before writing to csv file
 
     for row in data:
@@ -24,3 +24,5 @@ def write_csv(months):
         new_file.write('%s\n' % row)
 
     new_file.close()
+
+write_csv(['2016-01'])
