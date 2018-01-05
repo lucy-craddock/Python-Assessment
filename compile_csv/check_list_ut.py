@@ -1,6 +1,6 @@
 def empty_list(list_a):
     '''
-    Checks whether list is empty for unit testing.
+    Checks whether list is empty for unit testing. Returns boolean value.
     '''
 
     list_b = []
