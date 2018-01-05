@@ -1,8 +1,6 @@
-#import csv
 '''
 TO DO:
-    Add an exception for error handling if postcode not found.
-    Make this work without csv module
+    Add an exception for if the strings don't have a quotation mark
 '''
 
 def centre_point(postcode, filename):
