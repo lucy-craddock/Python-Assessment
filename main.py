@@ -79,7 +79,7 @@ def yes_no(option):
         return False
     else:
         new_input = input("Sorry, we recieved an error. Please try again.")
-        yes_no(new_input)
+        return yes_no(new_input)
     
 def produce_output(postcode, radius, start_date,
                    end_date, save_file):
@@ -99,7 +99,7 @@ def produce_output(postcode, radius, start_date,
             if save_file:
                 csv_save(cr_list, postcode, start_date, end_date)
             plot_map(cr_list, postcode)
-        except ValueError:
+        except (TypeError, ValueError):
             print('We cannot find your postcode.')
     else:
         print('Sorry, the details you provided were invalid!')
