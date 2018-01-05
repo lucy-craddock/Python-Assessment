@@ -1,4 +1,4 @@
-from check_list import empty_list
+from compile_csv.get_headings import get_headings
 
 def month_list(startdate, enddate):
     ''' Creates a list of months starting from a given start date to a given end date.

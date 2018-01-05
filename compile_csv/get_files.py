@@ -1,4 +1,4 @@
-from get_headings import get_headings
+from compile_csv.get_headings import get_headings
 
 def get_files(months):
     ''' Creates a compiled list of each file in months.

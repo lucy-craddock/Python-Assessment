@@ -1,4 +1,4 @@
-from check_list_ut import empty_list
+from compile_csv.check_list_ut import empty_list
 
 def get_headings(months):
     ''' Gets the headings of the first CSV file.
