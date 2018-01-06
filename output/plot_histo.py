@@ -70,3 +70,7 @@ def plot_map(data, postcode):
         count += 1
         if count >= len(crime_types):
             break
+
+if __name__ == "__main__":
+	print("testing plot_histo.py")
+	
