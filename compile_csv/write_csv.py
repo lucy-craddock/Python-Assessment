@@ -48,8 +48,8 @@ def check_csv():
 if __name__ == "__main__":
 	print("testing write_csv.py")
 	write_csv(['2016-01'])
-	check_csv()
+	assert check_csv()
 	write_csv(['2016-01','2016-02','2016-03'])
-	check_csv()
+	assert check_csv()
 	write_csv(['2016-08','2016-09','2016-10','2016-11','2016-12'])
-	check_csv()
+	assert check_csv()
