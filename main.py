@@ -69,7 +69,7 @@ def get_input():
         save_file = True
     else:
         save_file = False
-        
+
     produce_output(postcode, radius, start_date, end_date, save_file)
     
 def yes_no(option):
@@ -98,7 +98,7 @@ def produce_output(postcode, radius, start_date,
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))
             if save_file:
                 csv_save(cr_list, postcode, start_date, end_date)
-            plot_map(cr_list, postcode)
+            plot_histo(cr_list, postcode)
         except (TypeError, ValueError):
             print('We cannot find your postcode.')
     else:
