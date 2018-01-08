@@ -1,14 +1,17 @@
-from compile_csv.get_files import get_files
+'''
+TO DO:
+    Unit testing
+    Add another column (last outcome) when tabular output is finished
+'''
 
 def csv_save(data, postcode, start_date, end_date):
     ''' Writes the filtered list of crimes to csv.
-    
+
     Optional by user.
     '''
-    filename = postcode + ' from ' + start_date + ' to ' + end_date + '.csv'
-    
+    filename = postcode + '_from_' + start_date + '_to_' + end_date + '.csv'
+
     new_file = open(filename, 'w')
-            # cleans list before writing to csv file
 
     for row in data:
         temp_row = ''
@@ -16,8 +19,10 @@ def csv_save(data, postcode, start_date, end_date):
             element.lstrip('\'')
             element.lstrip('[')
             element.lstrip(']')
+            if element == '\n':
+                continue
             temp_row = temp_row + element + ','  # recreates csv file
-        row = temp_row
+        row = temp_row + '\n'
         new_file.write('%s' % row)
 
     new_file.close()
