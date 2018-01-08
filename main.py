@@ -1,4 +1,3 @@
-
 '''
 This module takes a time-range, radius and postcode to find all the crimes within a
 radius of that postcode over a time-range. This is outputted in a form of a histogram
@@ -45,8 +44,8 @@ def description():
     print('Description \n--------------')
     print('''This program will print a histogram to console of the most common crimes for a
 postcode within a radius of your choice for the latest month. You can specify a
-time frame if you choose to do. You also have the option of saving the crimes to
-a csv file.
+time frame if you choose to do. You also have the option of saving the data used
+for the charts to a csv file.
 
 The program will allow you to look up another postcode when finished. To quit,
 press 'y'.\n-----------------''')
