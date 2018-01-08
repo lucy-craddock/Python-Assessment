@@ -1,5 +1,5 @@
-#from compile_csv.get_files import get_files
-from get_files import get_files
+from compile_csv.get_files import get_files
+#from get_files import get_files
 
 def write_csv(months):
 	''' Writes the compiled list into a single CSV file.
