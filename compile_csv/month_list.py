@@ -1,5 +1,3 @@
-from compile_csv.get_headings import get_headings
-
 def month_list(startdate, enddate):
     ''' Creates a list of months starting from a given start date to a given end date.
 
@@ -28,7 +26,7 @@ def month_list(startdate, enddate):
 
     if mnth_range < 0:
         # if the range is negative (occurs if dates entered are not in chronological order) then
-        # multiply by -1 to make it a postive integer
+        # multiply by -1 to make it a positive integer
         mnth_range = mnth_range * (-1)
 
     if (mnth_range > 0) and (mnth_range < 12):
@@ -51,4 +49,6 @@ def month_list(startdate, enddate):
 
 if __name__ == '__main__':
     print('testing month list')
-    assert empty_list(month_list('2016-01','2016-03'))
+    assert month_list('2016-01','2016-03') == ['2016-01', '2016-02', '2016-03']
+    print(month_list('2016-12', '2016-10'))
+    print(month_list('2016-12', '2016-06'))
