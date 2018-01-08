@@ -1,4 +1,4 @@
-from compile_csv.check_list_ut import empty_list UNCOMMENT
+from compile_csv.check_list_ut import empty_list
 from check_list_ut import empty_list
 
 def get_headings(months):
