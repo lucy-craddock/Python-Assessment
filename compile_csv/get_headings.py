@@ -11,15 +11,16 @@ def get_headings(months):
     '''
 
     start_date = months[0] # gets first file
-    filename = 'compile_csv/crime/' + start_date + '/' + start_date + '-devon-and-cornwall-street.csv'
-    #filename = 'crime/' + start_date + '/' + start_date + '-devon-and-cornwall-street.csv'
+    filename = ('compile_csv/crime/' + start_date + '/' +
+                start_date + '-devon-and-cornwall-street.csv')
+    #filename = ('crime/' + start_date + '/' +
+    #start_date + '-devon-and-cornwall-street.csv')
     file = open(filename, 'r')
 
     first_file = list(file)
     headings = first_file[0] # takes first row which is a single element in the file list
     headings = headings.split(',') # splits into list of strings
-    headings = headings[0:2] + headings[4:7] + headings[9:10] # skips unnecessary columns
-
+    headings = headings[0:2] + headings[4:7] + headings[9:11] # skips unnecessary columns
     file.close()
 
     return headings

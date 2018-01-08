@@ -21,7 +21,7 @@ def get_files(months):
 
         for row in crime_loc[1:]:  # skips heading as already gotten
             row = row.split(',')
-            row = row[0:2] + row[4:7] + row[9:10]  # cleans columns
+            row = row[0:2] + row[4:7] + row[9:11]  # cleans columns
             crimes_list.append(row)
 
         full_list = full_list + crimes_list
