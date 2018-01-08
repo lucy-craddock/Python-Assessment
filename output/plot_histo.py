@@ -4,7 +4,7 @@ The module prints the a histogram in the console of the most common crimes
 in a postcode area in descending order.
 '''
 
-def plot_map(data, postcode):
+def plot_histo(data, postcode):
     ''' Prints the histogram for the crimes in area.
 
     This function creates a dictionary to store each crime  and its count. It then
@@ -70,3 +70,4 @@ def plot_map(data, postcode):
         count += 1
         if count >= len(crime_types):
             break
+	

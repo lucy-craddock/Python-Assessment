@@ -1,6 +1,5 @@
-from geodist import distance
-from bounding_box import bounding_box
-from check_list import empty_list
+from filter.geodist import distance
+from filter.bounding_box import bounding_box
 
 def crimes_in_box(post_lat, post_lon, radius):
     """ Returns list of crimes within radius.
@@ -11,7 +10,7 @@ def crimes_in_box(post_lat, post_lon, radius):
     """
     crime_loc = []
 
-    file = open(r'crimes_in_sw.csv', 'r')
+    file = open(r'compile_csv/crimes_in_sw.csv', 'r')
     crime_loc = list(file)  # turns into list to use indices
 
     headings = crime_loc[0]  # takes first row which is a single element in the file list

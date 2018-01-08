@@ -1,3 +1,4 @@
+#from get_headings import get_headings
 from compile_csv.get_headings import get_headings
 
 def get_files(months):
@@ -14,6 +15,7 @@ def get_files(months):
 
     for date in months:
         filename = 'compile_csv/crime/' + date + '/' + date + '-devon-and-cornwall-street.csv'
+        #filename = 'crime/' + date + '/' + date + '-devon-and-cornwall-street.csv'
         file = open(filename, 'r')
         crime_loc = list(file)  # turns into list to use indices
 
