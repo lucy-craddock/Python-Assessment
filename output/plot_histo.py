@@ -30,7 +30,7 @@ def plot_histo(data, postcode):
     crime_types = dict()
     length = len(data) - 1 # skips header
 
-    print(postcode, 'has a total of', length, 'crimes \n')
+    print('\n' + postcode, 'has a total of', length, 'crimes. \n')
 
     for row in data[1:]:
         if row[5] not in crime_types.keys():
