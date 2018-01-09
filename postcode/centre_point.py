@@ -1,7 +1,6 @@
 '''
 TO DO:
     Add an exception for if the strings don't have a quotation mark
-    Add exception if postcode not found
 '''
 
 def centre_point(postcode, filename):
