@@ -1,6 +1,7 @@
 '''
 TO DO:
     Add an exception for if the strings don't have a quotation mark
+    Add exception if postcode not found
 '''
 
 def centre_point(postcode, filename):
@@ -17,9 +18,9 @@ def centre_point(postcode, filename):
     postcodes = list(file)
     for row in postcodes[1:]:
         row = row.split(',')
-        row[0] = row[0][1:-1] # trims list as element begin and end with quotation mark
+        row[0] = row[0][1:-1] # trims list as elements begin and end with quotation mark
 
-        if row[0] == postcode:  # row[0] contains postcodes
+        if row[0] == postcode:  # first element contains postcodes
             # if the value of row[0] matches the given postcode, find the lat and lon from the row
             lat = row[10][1:-1]
             lon = row[11][1:-2] # extra for the newline character (end of the row)
