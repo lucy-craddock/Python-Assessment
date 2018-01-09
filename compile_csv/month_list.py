@@ -21,7 +21,6 @@ def month_list(startdate, enddate):
 
         if enddate[:4] == "2016" or enddate[:4] == "2017":
             year_end = enddate[:4]
-
            
     except:
         print('Start and end dates must be either 2016 or 2017.')
