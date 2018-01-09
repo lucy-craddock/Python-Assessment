@@ -1,7 +1,6 @@
 '''
 TO DO:
     Unit testing
-    Add another column (last outcome) when tabular output is finished
 '''
 
 def csv_save(data, postcode, start_date, end_date):
