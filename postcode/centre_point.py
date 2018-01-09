@@ -19,11 +19,13 @@ def centre_point(postcode, filename):
     for row in postcodes[1:]:
         row = row.split(',')
         row[0] = row[0][1:-1] # trims list as elements begin and end with quotation mark
-
+        
         if row[0] == postcode:  # first element contains postcodes
-            # if the value of row[0] matches the given postcode, find the lat and lon from the row
+                # if the value of row[0] matches the given postcode, find the lat and lon from the row
             lat = row[10][1:-1]
             lon = row[11][1:-2] # extra for the newline character (end of the row)
-
+            
             file.close()  # not good practise - won't be closed if postcode not found
+            if lat, lon is None:
+                raise ValueError
             return(float(lat), float(lon))
