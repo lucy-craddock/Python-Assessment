@@ -61,6 +61,7 @@ def month_list(startdate, enddate):
 if __name__ == '__main__':
     print('testing month list')
     assert month_list('2016-01','2016-03') == ['2016-01', '2016-02', '2016-03']
-    print(month_list('2016-10', '2016-12'))
-    print(month_list('2016-06', '2016-12'))
-    print(month_list('2016-01', '2017-12'))
+    assert month_list('2016-10', '2016-12') == ['2016-10', '2016-11', '2016-12']
+    assert month_list('2016-06', '2016-12') == ['2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12']
+    assert month_list('2016-10', '2017-04') == ['2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04']
+    print('All tests have run successfully!')
