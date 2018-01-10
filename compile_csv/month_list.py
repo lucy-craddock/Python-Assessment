@@ -1,54 +1,67 @@
 def month_list(startdate, enddate):
+
     ''' Creates a list of months starting from a given start date to a given end date.
+    Specified years must be either 2016 or 2017. Function will only work correctly if
+    dates are given in chronological order.
 
     ATTRIBUTES:
+
         months (list): an empty list is created to be filled by strings in this format:
             '2016-01', '2016-02'. This is returned. The format is important because this
             is used to read the file names in the directory.
+
     '''
 
     months = []
 
     try:
-        if startdate[:4] == enddate[:4]:
-            year = startdate[:4]
-        # the year for both dates must be the same for the module to function correctly
+        # the year for the start and end date must be 2016 or 2017
+        if startdate[:4] == "2016" or startdate[:4] == "2017":
+            year_start = startdate[:4]
 
+        if enddate[:4] == "2016" or enddate[:4] == "2017":
+            year_end = enddate[:4]
+           
     except:
-        print('Start and end dates must be within the same year.')
+        print('Start and end dates must be either 2016 or 2017.')
 
     else:  # runs if there are no exception errors in the try block
         month_start = int(startdate[5:])
         month_end = int(enddate[5:])
 
-        # compare months of start and end dates
-        mnth_range = month_end - month_start
-
-    if mnth_range < 0:
-        # if the range is negative (occurs if dates entered are not in chronological order) then
-        # multiply by -1 to make it a positive integer
-        mnth_range = mnth_range * (-1)
-
-    if (mnth_range > 0) and (mnth_range < 12):
-        # add dates to empty list
-        for month in range(month_start, month_end):
-            date = year + '-'
-            if month < 10:
-                date += '0'
-            date += str(month)
-            months.append(date)
-        months.append(enddate)
-
-    elif mnth_range == 0:
-        months.append(startdate)
-
-    else:
-        print('Invalid month range')
-
+        if year_start == year_end:
+            # add dates to empty list
+            for month in range(month_start, month_end):
+                date = year_start + '-'
+                if month < 10:
+                    date += '0'
+                date += str(month)
+                months.append(date)
+            months.append(enddate)
+               
+        else: # if years are different
+            for month in range(month_start, 13):
+                date = year_start + '-'
+                if month < 10:
+                    date += '0'
+                date += str(month)
+                months.append(date)
+               
+            for month in range(1, month_end):
+                date = year_end + '-'
+                if month < 10:
+                    date += '0'
+                date += str(month)
+                months.append(date)
+            months.append(enddate)
+               
     return months
+
 
 if __name__ == '__main__':
     print('testing month list')
     assert month_list('2016-01','2016-03') == ['2016-01', '2016-02', '2016-03']
-    print(month_list('2016-12', '2016-10'))
-    print(month_list('2016-12', '2016-06'))
+    assert month_list('2016-10', '2016-12') == ['2016-10', '2016-11', '2016-12']
+    assert month_list('2016-06', '2016-12') == ['2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12']
+    assert month_list('2016-10', '2017-04') == ['2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04']
+    print('All tests have run successfully!')
