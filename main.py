@@ -37,6 +37,7 @@ from postcode.centre_point import centre_point
 from filter.crimes_in_box import crimes_in_box
 from output.plot_histo import plot_histo
 from output.csv_save import csv_save
+from output.tabular_output import tabular_output
 
 def description():
     print('Authors: Lucy Craddock, Beth Harper, Jaime Viegas, Felipe Warrerner')
@@ -97,7 +98,8 @@ def produce_output(postcode, radius, start_date,
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))
             if save_file:
                 csv_save(cr_list, postcode, start_date, end_date)
-            plot_histo(cr_list, postcode)
+            tabular_output(cr_list, postcode)
+            plot_histo(cr_list)
         except (TypeError, ValueError):
             print('We cannot find your postcode.')
     else:
