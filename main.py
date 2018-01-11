@@ -20,7 +20,7 @@ ATTRIBUTES:
         the crime data. Not yet included this functionality.
 
     MONTHS (list): uses the time_range variable to return a nested list of the all the
-        crime data for the number of months specified.
+         crime data for the number of months specified.
 
     POSTDATA (tuple): longitude and latitude for the postcode inputted. Used in the
         crimes_in_radius to find the crimes within the radius of the geoposition.
@@ -47,8 +47,9 @@ postcode within a radius of your choice for the latest month. You can specify a
 time frame (in chronological order) if you choose to do. You also have the
 option of saving the data used for the charts to a csv file.
 
-The program will allow you to look up another postcode when finished. To quit,
-press 'y'.\n-----------------''')
+The program will allow you to look up another postcode when finished. Crime data is avalible
+for 2016-01 through to 2017-11. No crime data will be returned for months outside of this range.
+To quit, press 'y'.\n-----------------''')
 
 def get_input():
     postcode = input('Enter a postcode:')
