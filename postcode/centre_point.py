@@ -22,6 +22,6 @@ def centre_point(postcode, filename):
             lon = row[11][1:-2] # extra for the newline character (end of the row)
 
             file.close()
-			if lat is None: # checks for postcode not found
-				raise ValueError
+            if lat is None: # checks for postcode not found
+                raise ValueError
             return(float(lat), float(lon))
