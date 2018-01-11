@@ -60,8 +60,8 @@ def get_input():
         start_date = input('Enter a start date in the format YYYY-MM:')
         end_date = input('Enter an end date in the format YYYY-MM:')
     else:
-        start_date = '2016-12'
-        end_date = '2016-12'
+        start_date = '2017-11'
+        end_date = '2017-11'
     
     option_save = input("Would you like to save the crimes to a CSV file? (Y/N)")
     
