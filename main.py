@@ -14,7 +14,7 @@ ATTRIBUTES:
 
     radius (int): inputted by user. This is the radius of which the crimes will be
         returned. By requirements, it supposed to return crimes within 1, 2, or
-        5 miles. << validation??
+        5 miles.
 
     date (str): inputted by user. Used in old version to specify which month returns
         the crime data. Not yet included this functionality.
