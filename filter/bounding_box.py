@@ -16,7 +16,7 @@ def bounding_box(latlng, radius):
 
     radius = radius * 1.60934  # turns the radius, given in miles, to km
 
-    # some math
+    # math taken from http://janmatuschek.de/LatitudeLongitudeBoundingCoordinates
     dlat = radius / EARTH_R
     dlon = math.asin(math.sin(dlat) / math.cos(math.radians(lat)))
     dlat = math.degrees(dlat)
