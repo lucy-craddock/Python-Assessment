@@ -33,7 +33,6 @@ def get_files(months):
 
 if __name__ == '__main__':
     print('testing get_files')
-    assert empty_list(get_files['2016-01'])) == ["Crime ID", "Month", "Longditude",
-                                                 "Latitude", "Location", "Crime type",
-                                                 "Last outcome category"]
+    # Checks that list is not empty
+    assert empty_list(get_files['2016-01'])) == True
     print('test has run successfully')
