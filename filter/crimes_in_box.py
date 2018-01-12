@@ -37,6 +37,6 @@ def crimes_in_box(post_lat, post_lon, radius):
 
 if __name__ == "__main__":
     print("testing crimes in box")
-    assert empty_list(crimes_in_box(50.4127679, -4.085751, 1)) == True
-    assert empty_list(crimes_in_box(50.71413737, -2.43711588, 2)) == True
-    assert empty_list(crimes_in_box(50.71461595, -3.54978917, 5)) == True
+    assert empty_list(crimes_in_box(50.4127679, -4.085751, 1))
+    assert empty_list(crimes_in_box(50.71413737, -2.43711588, 2))
+    assert empty_list(crimes_in_box(50.71461595, -3.54978917, 5))
