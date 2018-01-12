@@ -27,5 +27,6 @@ def get_headings(months):
 
 if __name__ == '__main__':
     print('testing get headings')
-    assert empty_list(get_headings(['2016-01'])) == ["Crime ID", "Month", "Longditude", "Latitude", "Location", "Crime type", "Last outcome category"]
+    assert get_headings(['2016-01']) == ["Crime ID", "Month", "Longditude", "Latitude", "Location", "Crime type", "Last outcome category"]
+    assert empty_list(get_headings(['2016-01'])) == True
     print('test has run successfully')
