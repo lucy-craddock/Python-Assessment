@@ -1,5 +1,6 @@
 #from get_headings import get_headings
 from compile_csv.get_headings import get_headings
+from compile_csv.check_list_ut import empty_list
 
 def get_files(months):
     ''' Creates a compiled list of each file in months.
@@ -31,4 +32,8 @@ def get_files(months):
     return full_list
 
 if __name__ == '__main__':
-    print('testing get files')
+    print('testing get_files')
+    assert empty_list(get_files['2016-01'])) == ["Crime ID", "Month", "Longditude",
+                                                 "Latitude", "Location", "Crime type",
+                                                 "Last outcome category"]
+    print('test has run successfully')
