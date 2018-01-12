@@ -37,7 +37,9 @@ def validate_date(date):
         if (len(date) == 5) or (len(date) == 6):
             month = date[4:]
             if len(month) == 1:
-                # If the user has only used a single digit to specify the month (e.g. '1' for Jan instead of '01') - add a '0' character to the front of the month string
+
+                # If the user has only used a single digit to specify the month (e.g. '1' for Jan instead of '01')
+                #  - add a '0' character to the front of the month string
                 month = '0' + month
 
             if month in months_in_year:
@@ -55,23 +57,22 @@ def validate_date(date):
     return valid, date
 
 
-def test_valid():
+if __name__ == "__main__":  # Test the function using assert statements
 
-    valid_format = ['2016-01', '201602', '2012 04', '20161', '20165', '202012']
-    invalid_format = ['1234', '201614', '2016/01', '2016.01', '20160', '2016012']
+    # Lists containing valid and invalid dates
+   valid_date_format = ["2016-01", "201602", "2012 04", "20161", "20165", "20165", "202012"]
+   invalid_date_format = ["1234", "201614", "2016/01", "2016.01", "20160", "2016012"]
 
-    print('The given date string should only contian numbers, spaces or hyphen characters.')
-    print('If the string contains any other character it is invalid.')
-    print()
+    # Iterate through each lists, raise assertion error if test is unsuccessful
+   for i in range(len(valid_date_format)):
+       validate, date = validate_date(valid_date_format[i])
+       print('Given date:', valid_date_format[i], '\nReturned date:', date)
+       print('Valid?:', validate)
+       print()
 
-    for i in range(len(valid_format)):
-        validate, date = validate_date(valid_format[i])
-        print('Given date:', valid_format[i], '\nReturned date:', date)
-        print('Valid?:', validate)
-        print()
-
-    for j in range(len(invalid_format)):
-        validate, date = validate_date(invalid_format[j])
-        print('Given date:', invalid_format[j], '\nReturned date:', date)
-        print('Valid?', validate)
-        print()
+   for j in range(len(invalid_date_format)):
+       validate, date = validate_date(invalid_date_format[j])
+       print('Given date:', invalid_date_format[j], '\nReturned date:', date)
+       print('Valid?', validate)
+       print()
+   print("All tests ran successfully!")
