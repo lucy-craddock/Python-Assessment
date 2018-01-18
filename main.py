@@ -98,12 +98,11 @@ def produce_output(postcode, radius, start_date,
             cr_list = crimes_in_box(post_lat, post_lon, int(radius))
             if save_file:
                 csv_save(cr_list, postcode, start_date, end_date)
-            plot_histo(cr_list)
+            plot_histo(cr_list, postcode)
         except (TypeError, ValueError):
             print('We cannot find your postcode.')
     else:
         print('Sorry, the details you provided were invalid!')
-
     program_quit = input('Quit? (Y/N)')
 
     if yes_no(program_quit):
