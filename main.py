@@ -47,8 +47,10 @@ postcode within a radius of your choice for the latest month. You can specify a
 time frame (in chronological order) if you choose to do. You also have the
 option of saving the data used for the charts to a csv file.
 
-The program will allow you to look up another postcode when finished. Crime data is avalible
-for 2016-01 through to 2017-11. No crime data will be returned for months outside of this range.
+The program will allow you to look up another postcode when finished. Crime data
+is available for 2016-01 through to 2017-11. No crime data will be returned for
+months outside of this range.
+
 To quit, press 'y'.\n-----------------''')
 
 def get_input():
